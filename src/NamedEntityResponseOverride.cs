@@ -9,8 +9,12 @@ namespace Soenneker.AutoFaker.Overrides.Responses.Entities.Named;
 /// </summary>
 public class NamedEntityResponseOverride : AutoFakerOverride<NamedEntityResponse>
 {
+    public override bool CanOverride(AutoFakerContext context)
+    {
+        return context.GenerateType.IsSubclassOf(typeof(NamedEntityResponse));
+    }
+
     public override void Generate(AutoFakerOverrideContext context)
     {
-        var target = (context.Instance as NamedEntityResponse)!;
     }
 }
