@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Responses.Entities.Named" Version="3.0.55" />
+        <PackageReference Include="Soenneker.Responses.Entities.Named" Version="3.0.56" />
         <PackageReference Include="Soenneker.Utils.AutoBogus" Version="3.0.795" />
     </ItemGroup>
 </Project>
