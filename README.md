@@ -5,20 +5,30 @@
 
 # Soenneker.AutoFaker.Overrides.Responses.Entities.Named
 
-An AutoFaker (AutoBogus) override for the NamedEntityResponse object.
+An AutoFaker override that supplies a display name for `NamedEntityResponse` models.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.AutoFaker.Overrides.Responses.Entities.Named
 ```
 
-## What you get
+## Usage
 
-- `NamedEntityResponseOverride` — An AutoFaker (AutoBogus) override for the NamedEntityResponse object.
+```csharp
+using Soenneker.AutoFaker.Overrides.Responses.Entities.Named;
+using Soenneker.AutoFaker.Overrides.Responses.Entity;
+using Soenneker.Responses.Entities.Named;
+using Soenneker.Utils.AutoBogus;
 
-## API at a glance
+var autoFaker = new AutoFaker();
+autoFaker.Config.Overrides =
+[
+    new EntityResponseOverride(),
+    new NamedEntityResponseOverride()
+];
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `NamedEntityResponseOverride.CanOverride(context)` | Executes the can override operation. | A value indicating whether the operation succeeded. |
+NamedEntityResponse response = autoFaker.Generate<NamedEntityResponse>();
+```
+
+The named override fills `Name` with a commerce product name and applies to derived response types. Pair it with `EntityResponseOverride` to produce coherent inherited identity and timestamps.
